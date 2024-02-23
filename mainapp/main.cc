@@ -8,16 +8,16 @@
 
 int main(void) {
     std::ifstream configuration(RESOURCES_PATH + "configuration.json");
-    project::Logger logger;
+    project::Logger logger("test");
     if (configuration.is_open()) {
         std::string line;
-        logger.logSomething("Configuration file found:");
+        logger.logInfo("Configuration file found:");
         while(std::getline(configuration, line)) {
             std::cout << line << '\n';
         }
         configuration.close();
     } else {
-        logger.logSomething("Configuration file not found.");
+        logger.logInfo("Configuration file not found.");
     }
 
     std::string test = getServerInfo("http://example.com");
