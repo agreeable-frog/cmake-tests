@@ -19,6 +19,6 @@ function(dump_cmake_variables)
     endforeach()
 endfunction()
 
-add_subdirectory(projectlogger)
+add_subdirectory(logger)
 add_subdirectory(libweb)
 add_subdirectory(mainapp)

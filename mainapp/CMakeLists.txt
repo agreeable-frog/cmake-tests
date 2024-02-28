@@ -7,9 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/res/configuration.json)
 
 set(RESOURCES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/res)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/compile_defs.hh.in ${CMAKE_CURRENT_BINARY_DIR}/compile_defs.hh)
 
 add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/main.cc)
+
+target_compile_definitions(${PROJECT_NAME} PUBLIC RESOURCES_PATH="${RESOURCES_PATH}/")
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 

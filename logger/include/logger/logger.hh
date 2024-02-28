@@ -2,17 +2,17 @@
 
 #include <string>
 #include <log4cplus/initializer.h>
-#include <log4cplus/loggingmacros.h>
-#include <log4cplus/configurator.h>
 #include <log4cplus/logger.h>
 
 namespace project {
     class Logger {
     private:
+        static bool _configured;
         log4cplus::Initializer _initializer;
         log4cplus::Logger _logger;
     public:
-        Logger(const std::string& configFilePath);
+        static void configure(const std::string& configFilePath);
+        Logger(const std::string& name);
         void logInfo(const std::string& text);
     };
 }
